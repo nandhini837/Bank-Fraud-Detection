@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bank Fraud Detection</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- =========================
+             PROFESSIONAL HEADER
+        ========================== -->
+
+        <header>
+
+            <div class="security-badge">
+                🛡️ SECURE AI MONITORING
+            </div>
+
+            <h1>🏦 Bank Fraud Detection</h1>
+
+            <p>
+                AI-Powered Transaction Security & Risk Analysis
+            </p>
+
+            <div class="header-status">
+                <span class="status-dot"></span>
+                Fraud Detection System Online
+            </div>
+
+        </header>
+
+
+        <!-- =========================
+             TRANSACTION DETAILS
+        ========================== -->
+
+        <section class="card">
+
+            <h2>Transaction Details</h2>
+
+            <div class="input-group">
+
+                <label for="Time">
+                    Transaction Time
+                </label>
+
+                <input
+                    type="number"
+                    id="Time"
+                    value="50000"
+                >
+
+
+                <label for="Amount">
+                    Transaction Amount
+                </label>
+
+                <input
+                    type="number"
+                    id="Amount"
+                    value="100"
+                    min="0"
+                >
+
+            </div>
+
+
+            <!-- =========================
+                 ADVANCED ML FEATURES
+            ========================== -->
+
+            <details class="advanced-features">
+
+                <summary>
+
+                    <span>
+                        ⚙️ Advanced ML Features
+                    </span>
+
+                    <small>
+                        V1 – V28
+                    </small>
+
+                </summary>
+
+
+                <p class="feature-description">
+
+                    These anonymized features are used by the
+                    machine-learning model for fraud detection.
+
+                </p>
+
+
+                <div class="features">
+
+                    <input type="number" id="V1" placeholder="V1" value="0">
+                    <input type="number" id="V2" placeholder="V2" value="0">
+                    <input type="number" id="V3" placeholder="V3" value="0">
+                    <input type="number" id="V4" placeholder="V4" value="0">
+                    <input type="number" id="V5" placeholder="V5" value="0">
+                    <input type="number" id="V6" placeholder="V6" value="0">
+                    <input type="number" id="V7" placeholder="V7" value="0">
+                    <input type="number" id="V8" placeholder="V8" value="0">
+                    <input type="number" id="V9" placeholder="V9" value="0">
+                    <input type="number" id="V10" placeholder="V10" value="0">
+                    <input type="number" id="V11" placeholder="V11" value="0">
+                    <input type="number" id="V12" placeholder="V12" value="0">
+                    <input type="number" id="V13" placeholder="V13" value="0">
+                    <input type="number" id="V14" placeholder="V14" value="0">
+                    <input type="number" id="V15" placeholder="V15" value="0">
+                    <input type="number" id="V16" placeholder="V16" value="0">
+                    <input type="number" id="V17" placeholder="V17" value="0">
+                    <input type="number" id="V18" placeholder="V18" value="0">
+                    <input type="number" id="V19" placeholder="V19" value="0">
+                    <input type="number" id="V20" placeholder="V20" value="0">
+                    <input type="number" id="V21" placeholder="V21" value="0">
+                    <input type="number" id="V22" placeholder="V22" value="0">
+                    <input type="number" id="V23" placeholder="V23" value="0">
+                    <input type="number" id="V24" placeholder="V24" value="0">
+                    <input type="number" id="V25" placeholder="V25" value="0">
+                    <input type="number" id="V26" placeholder="V26" value="0">
+                    <input type="number" id="V27" placeholder="V27" value="0">
+                    <input type="number" id="V28" placeholder="V28" value="0">
+
+                </div>
+
+            </details>
+
+
+            <!-- =========================
+                 SAMPLE BUTTONS
+            ========================== -->
+
+            <div class="sample-buttons">
+
+                <button
+                    type="button"
+                    onclick="loadNormalSample()"
+                >
+                    Load Normal Sample
+                </button>
+
+
+                <button
+                    type="button"
+                    onclick="loadFraudSample()"
+                >
+                    Load Fraud Sample
+                </button>
+
+            </div>
+
+
+            <!-- =========================
+                 CHECK TRANSACTION
+            ========================== -->
+
+            <button
+                type="button"
+                id="predictBtn"
+                onclick="checkFraud()"
+            >
+                🔍 Check Transaction
+            </button>
+
+        </section>
+
+
+        <!-- =========================
+             DETECTION RESULT
+        ========================== -->
+
+        <section
+            class="card result-card"
+            id="resultSection"
+        >
+
+            <div class="result-header">
+
+                <div>
+
+                    <h2>
+                        Detection Result
+                    </h2>
+
+                    <p>
+                        AI-powered transaction risk assessment
+                    </p>
+
+                </div>
+
+
+                <div class="result-icon">
+                    🛡️
+                </div>
+
+            </div>
+
+
+            <div
+                class="prediction-banner"
+                id="predictionBanner"
+            >
+
+                <div
+                    class="prediction-icon"
+                    id="predictionIcon"
+                >
+                    🔍
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Transaction Status
+                    </span>
+
+                    <strong id="prediction">
+                        Waiting for analysis...
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="result-grid">
+
+                <div
+                    class="result-box"
+                    id="resultBox"
+                >
+
+                    <span>
+                        Fraud Probability
+                    </span>
+
+                    <strong id="probability">
+                        ---
+                    </strong>
+
+                </div>
+
+
+                <div
+                    class="result-box"
+                >
+
+                    <span>
+                        Risk Level
+                    </span>
+
+                    <strong id="risk">
+                        ---
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="factors-header">
+
+                <h3>
+                    🔍 Top Risk Factors
+                </h3>
+
+                <p>
+                    Important features influencing this prediction
+                </p>
+
+            </div>
+
+
+            <div id="explanationContainer">
+
+                <p class="no-result">
+                    No prediction yet.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             DASHBOARD
+        ========================== -->
+
+        <section class="dashboard">
+
+            <div class="dashboard-card">
+
+                <div class="dashboard-icon">
+                    📊
+                </div>
+
+                <div>
+                    <span>Transactions Checked</span>
+                    <strong id="transactionCount">0</strong>
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-card">
+
+                <div class="dashboard-icon">
+                    🔍
+                </div>
+
+                <div>
+                    <span>Latest Prediction</span>
+                    <strong id="dashboardPrediction">---</strong>
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-card">
+
+                <div class="dashboard-icon">
+                    ⚠️
+                </div>
+
+                <div>
+                    <span>Fraud Probability</span>
+                    <strong id="dashboardProbability">---</strong>
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-card">
+
+                <div class="dashboard-icon">
+                    🛡️
+                </div>
+
+                <div>
+                    <span>Risk Level</span>
+                    <strong id="dashboardRisk">---</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             SECURITY SUMMARY
+        ========================== -->
+
+        <section class="security-summary">
+
+            <div class="summary-header">
+
+                <div>
+
+                    <h2>Security Summary</h2>
+
+                    <p>
+                        Overview of analyzed transactions
+                    </p>
+
+                </div>
+
+                <div class="summary-icon">
+                    🛡️
+                </div>
+
+            </div>
+
+
+            <div class="summary-grid">
+
+                <div class="summary-card">
+
+                    <div class="summary-card-icon">
+                        📊
+                    </div>
+
+                    <div>
+
+                        <span>Total Analyzed</span>
+
+                        <strong id="summaryTotal">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card fraud-summary">
+
+                    <div class="summary-card-icon">
+                        🚨
+                    </div>
+
+                    <div>
+
+                        <span>Fraud Detected</span>
+
+                        <strong id="summaryFraud">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card safe-summary">
+
+                    <div class="summary-card-icon">
+                        🛡️
+                    </div>
+
+                    <div>
+
+                        <span>Safe Transactions</span>
+
+                        <strong id="summarySafe">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card rate-summary">
+
+                    <div class="summary-card-icon">
+                        📈
+                    </div>
+
+                    <div>
+
+                        <span>Fraud Detection Rate</span>
+
+                        <strong id="summaryRate">
+                            0.00%
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             FRAUD ANALYTICS
+        ========================== -->
+
+        <section class="card analytics-card">
+
+            <div class="analytics-header">
+
+                <div>
+
+                    <h2>
+                        Fraud Analytics
+                    </h2>
+
+                    <p>
+                        Visual comparison of safe and fraudulent predictions
+                    </p>
+
+                </div>
+
+                <div class="analytics-icon">
+                    📊
+                </div>
+
+            </div>
+
+
+            <div class="chart-container">
+
+                <canvas id="fraudChart"></canvas>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             TRANSACTION HISTORY
+        ========================== -->
+
+        <section class="card history-card">
+
+            <div class="history-header">
+
+                <div>
+
+                    <h2>
+                        Transaction History
+                    </h2>
+
+                    <p>
+                        Recent transactions analyzed by the fraud detection system
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- JavaScript creates the history table here -->
+
+            <div
+                class="table-container"
+                id="historyContainer"
+            >
+            </div>
+
+
+            <button
+                type="button"
+                onclick="clearHistory()"
+                class="clear-history-btn"
+            >
+                🗑️ Clear History
+            </button>
+
+        </section>
+
+    </div>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="footer">
+
+        <div class="footer-logo">
+            🏦 Bank Fraud Detection
+        </div>
+
+
+        <p>
+            AI-powered transaction monitoring and fraud risk analysis
+        </p>
+
+
+        <div class="footer-status">
+
+            <span class="status-dot"></span>
+
+            System Operational
+
+        </div>
+
+
+        <small>
+            © 2026 Bank Fraud Detection |
+            Machine Learning Security System
+        </small>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
